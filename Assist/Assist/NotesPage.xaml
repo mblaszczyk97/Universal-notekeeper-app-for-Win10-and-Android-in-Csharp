@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Assist"
+             x:Class="Assist.NotesPage"
+             BackgroundColor="LightYellow">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Dodaj notatkę"
+                     Clicked="OnNoteAddedClicked" />
+        <ToolbarItem Text="Dodaj kontakt"
+                     Clicked="OnPerson" /> 
+        <ToolbarItem Text="Kontakty"
+                     Clicked="OnPersonList" />
+        <ToolbarItem Text="Pogoda na dziś"
+                     Clicked="OnWeather" />
+        <ToolbarItem Text="Przelicznik - Beta"
+                     Clicked="OnCurrency" />
+        <ToolbarItem Text=""
+                     Clicked="OnHour" />
+        <ToolbarItem Text=""
+                     Clicked="OnBatteryCheck" />
+    </ContentPage.ToolbarItems>
+
+    <Grid Margin="10">
+        <Grid.BindingContext>
+            <local:PersonCollectionViewModel />
+        </Grid.BindingContext>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+        <ListView x:Name="batteryView"
+              Margin="20"
+              Grid.Row="0"
+              Grid.Column="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Text}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ListView x:Name="listView"
+              Margin="20"
+                      Grid.Row="0"
+              Grid.Column="0"
+              ItemSelected="OnListViewItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Text}"
+                          Detail="{Binding Date}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+    </Grid>
+
+</ContentPage>

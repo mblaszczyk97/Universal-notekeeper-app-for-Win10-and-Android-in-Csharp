@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Assist.WeatherCheck"
+            BackgroundColor="LightYellow">
+    <Grid Margin="20,35,20,20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*" />
+            <ColumnDefinition Width="0.6*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Entry x:Name="cityEntry"
+               Grid.ColumnSpan="2"
+               Text="Gdynia" />
+        <Button Grid.ColumnSpan="2"
+                Grid.Row="1"
+                Text="Zobacz pogode"
+                Clicked="OnButtonClicked" />
+        <Label Grid.Row="2"
+               Text="Lokalizacja:" />
+        <Label Grid.Row="2"
+               Grid.Column="1"
+               Text="{Binding Title}" />
+        <Label Grid.Row="3"
+               Text="Temperatura:" />
+        <Label Grid.Row="3"
+               Grid.Column="1"
+               Text="{Binding Main.Temperature}" />
+        <Label Grid.Row="4"
+               Text="Wiatr:" />
+        <Label Grid.Row="4"
+               Grid.Column="1"
+               Text="{Binding Wind.Speed}" />
+        <Label Grid.Row="5"
+               Text="Wilgotność:" />
+        <Label Grid.Row="5"
+               Grid.Column="1"
+               Text="{Binding Main.Humidity}" />
+        <Label Grid.Row="6"
+               Text="Widzialność:" />
+        <Label Grid.Row="6"
+               Grid.Column="1"
+               Text="{Binding Weather[0].Visibility}" />
+    </Grid>
+</ContentPage>
